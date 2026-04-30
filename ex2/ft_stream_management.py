@@ -32,7 +32,7 @@ if __name__ == "__main__":
 
         inp: str = sys.stdin.readline().rstrip().strip()
         if not inp:
-            print("Not saving data")
+            sys.stdout.write("Not saving data")
         else:
             new_file = open(inp, "w")
             print(f"Saving data to '{inp}'")

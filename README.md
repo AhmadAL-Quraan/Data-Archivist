@@ -45,3 +45,5 @@ file:typing.IO = open("file","mode")
 file = open("file.txt","r")
 file.write("hello") # This will give an error: not writeable
 ```
+
+

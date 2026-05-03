@@ -4,7 +4,7 @@
 ```python 
 file = open("file-name","mode")
 ```
-`Text mode (default, e.g., 'r':read only , 'w': delete what exist and write , 'a': appened at the end of file, 'r+': If you want reading and appened [writing] ): Returns a _io.TextIOWrapper object.`
+`Text mode (default, e.g., 'r':read only , 'w': delete what exist and write , 'a': appened at the end of file, 'r+': If you want reading and writing -> begging of the file, a+: Read and appened at the end(need file.seek(0) to print  ): Returns a _io.TextIOWrapper object.`
 
 `Buffered Binary mode (e.g., 'rb', 'wb', 'ab'): Returns a buffered stream object such as _io.BufferedReader, _io.BufferedWriter, or _io.BufferedRandom.`
 

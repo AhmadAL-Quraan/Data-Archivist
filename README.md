@@ -26,8 +26,7 @@ Methods include: standard methods like .read(), .readline(), .readlines(), .writ
 
 * `file.close()`: Used to 1) Flushing data to disk, 2) Releasing system resources-> Unlocks Files like on windows, prevent resource leaks and free memory.
 
-## Typing for files in python
-
+Typing for files in python:
 * `typing.IO`
 ```python 
 import typing 
@@ -47,3 +46,14 @@ file.write("hello") # This will give an error: not writeable
 ```
 
 
+
+#  sys package 
+
+## input() vs sys.stdin
+  * `input()`: Slower than `sys.stdin`, read `\n` each time (you must use `strip()` or `rstrip()`.
+
+  * Use `.readline()`, `.read()` with `sys.stdin`.
+
+## sys.stderr
+
+* To redirect the output to stderr -> `print("output",file=sys.stderr)`

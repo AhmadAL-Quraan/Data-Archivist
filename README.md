@@ -339,3 +339,469 @@ print("Error message", file=sys.stderr)
 | Error output | `sys.stderr` |
 
 ---
+
+
+
+# Python File Handling & `sys` Module Exercises (ex00 → ex03)
+
+* Disscusing what I learnt and should be learned from each exercise.
+---
+
+# ex00 — Basic File Reading
+
+## Concepts Introduced
+
+### 1. Command Line Arguments
+
+Using `sys.argv` to access arguments passed to the program.
+
+```python
+import sys
+
+print(sys.argv)
+```
+
+Example:
+
+```bash
+python3 script.py file.txt
+```
+
+- `sys.argv[0]` → script name
+- `sys.argv[1]` → first argument
+
+---
+
+### 2. Argument Validation
+
+```python
+if len(sys.argv) != 2:
+    print("Usage: ft_ancient_text.py <file>")
+    exit(0)
+```
+
+Learned:
+
+- Checking user input before running the program
+- Preventing invalid usage
+
+---
+
+### 3. Opening Files
+
+```python
+file_open = open(sys.argv[1], "r")
+```
+
+Learned:
+
+- Using `open()`
+- Read mode `"r"`
+
+---
+
+### 4. Reading File Content
+
+```python
+print(file_open.read())
+```
+
+Learned:
+
+- `.read()` reads the entire file as one string
+
+---
+
+### 5. Closing Files
+
+```python
+file_open.close()
+```
+
+Learned:
+
+- Releasing resources
+- Proper file cleanup
+
+---
+
+### 6. Exception Handling
+
+```python
+except Exception as e:
+    print(f"Error opening file '{sys.argv[1]}': {e}")
+```
+
+Learned:
+
+- Preventing program crashes
+- Handling runtime errors safely
+
+---
+
+# What Should Be Learned from ex00
+
+- How to use `sys.argv`
+- Basic file opening and reading
+- Importance of closing files
+- Basic exception handling
+- Simple CLI program structure
+
+---
+
+# ex01 — File Transformation & Writing
+
+This exercise extends ex00 by transforming and saving data.
+
+---
+
+## New Concepts Introduced
+
+### 1. Storing File Content
+
+```python
+content: str = file_open.read()
+```
+
+Learned:
+
+- Saving file data into variables
+
+---
+
+### 2. String Processing
+
+```python
+for i in content:
+```
+
+Learned:
+
+- Iterating over characters in a string
+
+---
+
+### 3. Detecting Newlines
+
+```python
+if i == "\n":
+```
+
+Learned:
+
+- Working with line breaks
+- Text parsing basics
+
+---
+
+### 4. Building New Strings
+
+```python
+List_after += save
+List_after += "#"
+```
+
+Learned:
+
+- String concatenation
+- Transforming file content
+
+---
+
+### 5. User Input
+
+```python
+inp = input("Enter new file name (or empty): ")
+```
+
+Learned:
+
+- Interactive terminal input
+
+---
+
+### 6. Writing to Files
+
+```python
+new_file = open(inp, "w")
+new_file.write(List_after)
+```
+
+Learned:
+
+- Write mode `"w"`
+- Creating new files
+- Saving processed data
+
+---
+
+# What Should Be Learned from ex01
+
+- Reading and modifying text
+- Creating transformed output
+- Writing data to files
+- Interactive terminal programs
+- Basic text-processing algorithms
+
+---
+
+# ex02 — `sys.stdin`, `stdout`, and `stderr`
+
+This exercise improves terminal interaction using the `sys` module.
+
+---
+
+## New Concepts Introduced
+
+### 1. Using `sys.stdin.readline()`
+
+```python
+inp = sys.stdin.readline().rstrip().strip()
+```
+
+Learned:
+
+- Faster input handling
+- Difference between `input()` and `sys.stdin.readline()`
+- Removing `\n` using `.rstrip()` or `.strip()`
+
+---
+
+### 2. Using `sys.stdout.write()`
+
+```python
+sys.stdout.write("Not saving data")
+```
+
+Learned:
+
+- Direct writing to standard output
+- Difference between `print()` and `stdout.write()`
+
+---
+
+### 3. Using `sys.stderr`
+
+```python
+print(
+    f"[STDERR] Error opening file '{sys.argv[1]}': {e}",
+    file=sys.stderr,
+)
+```
+
+Learned:
+
+- Writing errors separately from normal output
+- Debugging and logging concepts
+
+---
+
+# What Should Be Learned from ex02
+
+- Standard input/output streams
+- Faster terminal input methods
+- Error stream handling
+- Better CLI application design
+
+---
+
+# ex03 — Secure File Handling with Functions
+
+This exercise introduces reusable file-handling functions and safer file management.
+
+---
+
+## New Concepts Introduced
+
+### 1. Creating Reusable Functions
+
+```python
+def secure_archive(file_name: str, mode: str = "r", content: str = ""):
+```
+
+Learned:
+
+- Function design
+- Reusability
+- Default arguments
+
+---
+
+### 2. Type Hinting
+
+```python
+-> tuple[bool, str]
+```
+
+Learned:
+
+- Return type annotations
+- Better code readability
+- Static typing concepts
+
+---
+
+### 3. Using `with open()`
+
+```python
+with open(file_name, mode) as file:
+```
+
+Learned:
+
+- Automatic file closing
+- Safer resource management
+- Preferred Python file handling style
+
+---
+
+### 4. Returning Status Information
+
+```python
+return (True, full_content)
+```
+
+Learned:
+
+- Returning multiple values
+- Error-state design patterns
+
+---
+
+### 5. Supporting Multiple Modes
+
+```python
+if mode == "r":
+elif mode == "w":
+```
+
+Learned:
+
+- Multi-purpose functions
+- Conditional logic in APIs
+
+---
+
+### 6. Handling File Errors Gracefully
+
+```python
+except Exception as e:
+    return (False, f"{e}")
+```
+
+Learned:
+
+- Safe error propagation
+- Designing fault-tolerant code
+
+---
+
+# What Should Be Learned from ex03
+
+- Writing reusable utility functions
+- Safe file handling using `with`
+- Returning structured results
+- Better error management
+- Designing cleaner APIs
+
+---
+
+# Overall Topics Covered (ex00 → ex03)
+
+## File Handling
+
+- `open()`
+- `read()`
+- `write()`
+- `close()`
+- `with open()`
+
+---
+
+## File Modes
+
+| Mode | Purpose |
+|---|---|
+| `"r"` | Read |
+| `"w"` | Write |
+| `"a"` | Append |
+| `"r+"` | Read + Write |
+| `"a+"` | Read + Append |
+
+---
+
+## `sys` Module
+
+- `sys.argv`
+- `sys.stdin`
+- `sys.stdout`
+- `sys.stderr`
+
+---
+
+## Error Handling
+
+- `try`
+- `except`
+- Preventing crashes
+
+---
+
+## String Processing
+
+- Iteration over text
+- Detecting `\n`
+- Building transformed content
+
+---
+
+## Good Practices Learned
+
+### Preferred File Handling
+
+```python
+with open("file.txt", "r") as file:
+    content = file.read()
+```
+
+Instead of:
+
+```python
+file = open("file.txt", "r")
+content = file.read()
+file.close()
+```
+
+---
+
+### Using Type Hints
+
+```python
+def func() -> tuple[bool, str]:
+```
+
+---
+
+### Separating Errors from Output
+
+```python
+print("error", file=sys.stderr)
+```
+
+---
+
+# Final Learning Goals
+
+By the end of these exercises, you should understand:
+
+- Basic file handling in Python
+- Reading and writing files
+- Working with command-line arguments
+- Using the `sys` module
+- Error handling
+- Text transformation
+- Safe resource management
+- Creating reusable file utility functions
+- Writing cleaner and safer Python code
+
+---

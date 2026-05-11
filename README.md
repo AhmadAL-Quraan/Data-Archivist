@@ -469,58 +469,10 @@ Learned:
 
 ---
 
-### 2. String Processing
 
-```python
-for i in content:
-```
 
-Learned:
 
-- Iterating over characters in a string
-
----
-
-### 3. Detecting Newlines
-
-```python
-if i == "\n":
-```
-
-Learned:
-
-- Working with line breaks
-- Text parsing basics
-
----
-
-### 4. Building New Strings
-
-```python
-List_after += save
-List_after += "#"
-```
-
-Learned:
-
-- String concatenation
-- Transforming file content
-
----
-
-### 5. User Input
-
-```python
-inp = input("Enter new file name (or empty): ")
-```
-
-Learned:
-
-- Interactive terminal input
-
----
-
-### 6. Writing to Files
+### 2. Writing to Files
 
 ```python
 new_file = open(inp, "w")
@@ -627,21 +579,8 @@ Learned:
 
 ---
 
-### 2. Type Hinting
 
-```python
--> tuple[bool, str]
-```
-
-Learned:
-
-- Return type annotations
-- Better code readability
-- Static typing concepts
-
----
-
-### 3. Using `with open()`
+### 2. Using `with open()`
 
 ```python
 with open(file_name, mode) as file:
@@ -655,7 +594,7 @@ Learned:
 
 ---
 
-### 4. Returning Status Information
+### 3. Returning Status Information
 
 ```python
 return (True, full_content)
@@ -668,7 +607,7 @@ Learned:
 
 ---
 
-### 5. Supporting Multiple Modes
+### 4. Supporting Multiple Modes
 
 ```python
 if mode == "r":
@@ -682,7 +621,7 @@ Learned:
 
 ---
 
-### 6. Handling File Errors Gracefully
+### 5. Handling File Errors Gracefully
 
 ```python
 except Exception as e:
@@ -691,6 +630,7 @@ except Exception as e:
 
 Learned:
 
+---
 - Safe error propagation
 - Designing fault-tolerant code
 
@@ -747,13 +687,6 @@ Learned:
 
 ---
 
-## String Processing
-
-- Iteration over text
-- Detecting `\n`
-- Building transformed content
-
----
 
 ## Good Practices Learned
 
@@ -774,13 +707,6 @@ file.close()
 
 ---
 
-### Using Type Hints
-
-```python
-def func() -> tuple[bool, str]:
-```
-
----
 
 ### Separating Errors from Output
 
@@ -788,20 +714,4 @@ def func() -> tuple[bool, str]:
 print("error", file=sys.stderr)
 ```
 
----
 
-# Final Learning Goals
-
-By the end of these exercises, you should understand:
-
-- Basic file handling in Python
-- Reading and writing files
-- Working with command-line arguments
-- Using the `sys` module
-- Error handling
-- Text transformation
-- Safe resource management
-- Creating reusable file utility functions
-- Writing cleaner and safer Python code
-
----

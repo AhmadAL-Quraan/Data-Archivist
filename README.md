@@ -1,7 +1,7 @@
 # File Operations in Python
 
 * Understanding how to deal with files in python, including reading, writing, parsing and handle different errors.
-* Main concepts on that explained below, also what I learnt from each [exercise](#python-file-handling--sys-module-exercises-ex00--ex03))
+* Main concepts on that explained below, also what I learnt from each [exercise](#python-file-handling--sys-module-exercises-ex00--ex03).
 ## Opening Files with `open()`
 
 The `open()` function opens a file and returns a **file object** (also called a *file-like object*).
